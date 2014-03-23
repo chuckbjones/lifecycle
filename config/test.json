@@ -1,0 +1,15 @@
+{
+  "port" : 5000,
+  "database" : "localhost/lifecycle_test",
+  "log" : { 
+    "console" : {
+      "silent" : true
+    },
+    "file" : {
+      "filename" : "./log/test.log", 
+      "level" : "verbose",
+      "colorize" : false,
+      "json" : false
+    }
+  }
+}

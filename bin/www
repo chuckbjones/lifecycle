@@ -1,0 +1,8 @@
+#!/usr/bin/env node
+var nconf = require('../config');
+var log = require('../config/logger').logger;
+var app = require('../app');
+
+var server = app.listen(nconf.get('port'), function() {
+  log.info('Express server listening on port ' + server.address().port);
+});

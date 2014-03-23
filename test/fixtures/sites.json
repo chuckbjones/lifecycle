@@ -1,0 +1,250 @@
+[
+{
+  "_id": "gato1",
+  "service": "gato",
+  "live_date": "2012/01/01",
+  "organizational_unit": "VPIT",
+  "url": null,
+  "name": "Decommisioned Gato Site",
+  "managers": [
+    {
+      "role": "manager",
+      "training_level": "One",
+      "organizational_unit": null,
+      "training_date": null,
+      "name": "John Manager",
+      "digital_sign_training_level": "None",
+      "digital_sign_training_date": null,
+      "phone": "245.1234",
+      "email": "jmgr@example.com"
+    }
+  ],
+  "state": "Decommissioned",
+  "comments": "Waiting for content from client. \n\nI suspect this site will never be used. Putting in Decommissioned",
+  "owner": {
+    "name": "James Owner",
+    "email": "jpwn@example.com"
+  },
+  "updated_at": "2011/03/26",
+  "created_at": "2006/11/28",
+  "site_type": "Special Project"
+},
+{
+  "_id": "gato2",
+  "service": "gato",
+  "live_date": "2017/01/01",
+  "organizational_unit": "College of Science",
+  "url": "http://www.bio.example.com/",
+  "name": "Biology",
+  "managers": [
+    {
+      "role": "manager",
+      "training_level": "Two",
+      "organizational_unit": "College of Science",
+      "training_date": "2012/10/24 16:00:00 -0500",
+      "name": "Jane Manager",
+      "digital_sign_training_level": "None",
+      "digital_sign_training_date": null,
+      "phone": null,
+      "email": "jmgr2@example.com"
+    }
+  ],
+  "state": "Live in Gato 2",
+  "comments": null,
+  "owner": {
+    "name": "Joe Owner",
+    "email": "jpwn2@example.com"
+  },
+  "updated_at": "2013/02/08",
+  "created_at": "2006/11/30",
+  "site_type": "Academic Department"
+},
+{
+  "_id": "gato3",
+  "service": "gato",
+  "live_date": "2007/04/16",
+  "organizational_unit": "VPUA",
+  "url": "http://www.ua.example.com/",
+  "name": "VP University Advancement",
+  "managers": [
+    {
+      "role": "manager",
+      "training_level": "Two",
+      "organizational_unit": "VPUA",
+      "training_date": "2010/01/12 00:00:00 -0600",
+      "name": "Fred Manager",
+      "digital_sign_training_level": "None",
+      "digital_sign_training_date": null,
+      "phone": null,
+      "email": "fmgr@example.com"
+    },
+    {
+      "role": "editor",
+      "training_level": "One",
+      "organizational_unit": null,
+      "training_date": "2008/01/01 12:25:00 -0600",
+      "name": "Paul Editor",
+      "digital_sign_training_level": "None",
+      "digital_sign_training_date": null,
+      "phone": null,
+      "email": "pedt@example.com"
+    }
+  ],
+  "state": "Live in Gato 2",
+  "comments": "Sandbox access is included in role\n\nUsers audited and updated: 02/13/2012\n\nUsers audited and updated: 11/07/2012",
+  "owner": {
+    "name": "Tom Owner",
+    "email": "tpwn@example.com"
+  },
+  "updated_at": "2013/02/14",
+  "created_at": "2007/01/08",
+  "site_type": "VP Office"
+},
+{
+  "_id": "calendar1",
+  "service": "calendar",
+  "organizational_unit": "College of Liberal Arts",
+  "name": "College of Liberal Arts",
+  "managers": [
+
+  ],
+  "comments": null,
+  "owner": {
+    "name": "Laura Owner",
+    "email": "lpwn@example.com"
+  },
+  "updated_at": "2008/07/15",
+  "created_at": "2008/07/15"
+},
+{
+  "_id": "calendar2",
+  "service": "calendar",
+  "organizational_unit": "VPSA",
+  "name": "Career Services",
+  "managers": [
+    {
+      "organizational_unit": null,
+      "training_date": null,
+      "name": "Sue Manager",
+      "email": "smgr@example.com"
+    }
+  ],
+  "comments": null,
+  "owner": {
+    "name": "Chris Owner",
+    "email": "cpwn@example.com"
+  },
+  "updated_at": "2008/07/16",
+  "created_at": "2008/07/16"
+},
+{
+  "_id": "calendar3",
+  "service": "calendar",
+  "organizational_unit": "College of Fine Arts and Communication",
+  "name": "College of Fine Arts",
+  "managers": [
+    {
+      "organizational_unit": null,
+      "training_date": null,
+      "name": "Ernie Manager",
+      "email": "emgr@example.com"
+    },
+    {
+      "organizational_unit": null,
+      "training_date": null,
+      "name": "Arthur Manager",
+      "email": "amgr@example.com"
+    }
+  ],
+  "comments": "Manager is on medical leave until July. Please contact Owner for management questions until Manager contacts us.",
+  "owner": {
+    "name": "Bob Owner",
+    "email": "bpwn@example.com"
+  },
+  "updated_at": "2008/07/16",
+  "created_at": "2008/07/16"
+},
+{
+  "_id": "signup1",
+  "service": "signup",
+  "modified_date": null,
+  "name": "Center for Mathematics Readiness",
+  "managers": [
+    {
+      "organizational_unit": null,
+      "training_date": null,
+      "name": "Dave Manager",
+      "email": "dmgr@example.com",
+      "phone": null
+    },
+    {
+      "organizational_unit": null,
+      "training_date": null,
+      "name": "Edith Manager",
+      "email": "emgr2@example.com",
+      "phone": null
+    },
+    {
+      "organizational_unit": null,
+      "training_date": null,
+      "name": "Felicia Manager",
+      "email": "fmgr2@example.com",
+      "phone": null
+    }
+  ],
+  "added_date": "2012/09/04",
+  "comments": null,
+  "owner": {
+    "name": "George Owner",
+    "email": "gpwn@example.com"
+  },
+  "updated_at": "2012/09/19 16:46:14 -0500",
+  "created_at": "2012/09/19 16:46:14 -0500"
+},
+{
+  "_id": "signup2",
+  "service": "signup",
+  "modified_date": null,
+  "name": "Instructional Technologies Support Admin",
+  "managers": [
+    {
+      "organizational_unit": "VPIT",
+      "training_date": null,
+      "name": "Hank Manager",
+      "email": "hmgr@example.com",
+      "phone": null
+    }
+  ],
+  "added_date": "2012/09/04",
+  "comments": null,
+  "owner": {
+    "name": "Ivan Owner",
+    "email": "ipwn@example.com"
+  },
+  "updated_at": "2012/09/19 16:47:22 -0500",
+  "created_at": "2012/09/19 16:47:22 -0500"
+},
+{
+  "_id": "signup3",
+  "service": "signup",
+  "modified_date": null,
+  "name": "Clinical Laboratory Science",
+  "managers": [
+    {
+      "organizational_unit": null,
+      "training_date": null,
+      "name": "Kate Manager",
+      "email": "kmgr@example.com",
+      "phone": null
+    }
+  ],
+  "added_date": "2012/09/04",
+  "comments": null,
+  "owner": {
+    "name": "Larry Owner",
+    "email": "lpwn2@example.com"
+  },
+  "updated_at": "2012/09/19 16:48:38 -0500",
+  "created_at": "2012/09/19 16:48:38 -0500"
+}
+]
