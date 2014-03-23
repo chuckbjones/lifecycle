@@ -1,4 +1,4 @@
-# lifecycle
+# lifecycle [![Build Status](https://travis-ci.org/chuckbjones/lifecycle.svg?branch=master)](https://travis-ci.org/chuckbjones/lifecycle)
 
 This is going to be a node.js app with an ember.js frontend. Currently using mongodb for the database, but this may change to couch in the future.
 
