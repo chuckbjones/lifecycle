@@ -1,0 +1,99 @@
+[
+{
+    "_id": "gato1",
+    "role": "manager",
+    "service": "gato",
+    "training_level": "One",
+    "organizational_unit": "College of Applied Arts",
+    "training_date": "2007/01/01 00:00:00 -0600",
+    "name": "Alfred Manager",
+    "email": "amgr1@example.com",
+    "phone": "5-8351"
+}, {
+    "_id": "gato2",
+    "role": "editor",
+    "service": "gato",
+    "training_level": "Two",
+    "organizational_unit": "AVP Research",
+    "training_date": "2008/05/22 00:00:00 -0500",
+    "name": "Bobby Editor",
+    "email": "bedt1@example.com",
+    "phone": null
+}, {
+    "_id": "gato3",
+    "role": "manager",
+    "service": "gato",
+    "training_level": "One",
+    "organizational_unit": null,
+    "training_date": null,
+    "name": "Charlie Manager",
+    "email": "cmgr@example.com",
+    "phone": "867-5309"
+}, {
+    "_id": "calendar1",
+    "role": "editor",
+    "service": "calendar",
+    "training_level": "One",
+    "organizational_unit": "VPIT",
+    "training_date": null,
+    "name": "Dave Editor",
+    "email": "dedt@example.com",
+    "phone": "555-9876 cell 210-555-2819",
+    "updated_at": "2011/07/06 11:30:38 -0500",
+    "created_at": null
+}, {
+    "_id": "calendar2",
+    "role": "manager",
+    "service": "calendar",
+    "training_level": "One",
+    "organizational_unit": "Provost/VPAA",
+    "training_date": null,
+    "name": "Eddie Manager",
+    "email": "emgr1@example.com",
+    "phone": null,
+    "updated_at": "2011/07/06 11:30:38 -0500",
+    "created_at": null
+}, {
+    "_id": "calendar3",
+    "role": "manager",
+    "service": "calendar",
+    "training_level": "None",
+    "organizational_unit": null,
+    "training_date": null,
+    "name": "Felicia Manager",
+    "email": "fmgr2@example.com",
+    "phone": null,
+    "updated_at": "2011/07/06 11:30:38 -0500",
+    "created_at": null
+}, {
+    "_id": "signup1",
+    "service": "signup",
+    "organizational_unit": "VPIT",
+    "training_date": null,
+    "name": "Gary Customer",
+    "email": "gcst@example.com",
+    "phone": "555-5787 cell 716-555-0975",
+    "updated_at": null,
+    "created_at": null
+}, {
+    "_id": "signup2",
+    "service": "signup",
+    "organizational_unit": null,
+    "training_date": null,
+    "name": "Heidi Customer",
+    "email": "hcst@example.com",
+    "phone": null,
+    "updated_at": null,
+    "created_at": null
+}, {
+    "_id": "signup3",
+    "service": "signup",
+    "organizational_unit": null,
+    "training_date": null,
+    "name": "Iggy Cust",
+    "email": "icst@example.com",
+    "phone": null,
+    "updated_at": null,
+    "created_at": null
+}
+]
