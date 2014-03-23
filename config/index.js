@@ -1,5 +1,4 @@
 var nconf = require('nconf');
-var log = require('winston');
 
 nconf.env().argv();
 
@@ -11,6 +10,7 @@ var logfile = './log/'+env+'.log';
 nconf.defaults({
   port : 3000,
   database : 'localhost/lifecycle',
+  verboseErrors : false,
   log : { 
     console : {
       level : 'info',

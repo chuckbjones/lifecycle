@@ -26,7 +26,7 @@ exports.show = function show(req, res, next) {
       res.send(result);
     }
   );
-}
+};
 
 /* POST a new site document */
 exports.create = function create(req, res, next) {

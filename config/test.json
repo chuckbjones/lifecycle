@@ -1,6 +1,7 @@
 {
   "port" : 5000,
   "database" : "localhost/lifecycle_test",
+  "verboseErrors" : true,
   "log" : { 
     "console" : {
       "silent" : true

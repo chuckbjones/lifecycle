@@ -1,11 +1,9 @@
 var nconf = require('./config');
 var logger = require('./config/logger');
-var log = logger.logger;
 
 var monk = require('monk');
 
 var express = require('express');
-var http = require('http');
 var path = require('path');
 var favicon = require('static-favicon');
 var cookieParser = require('cookie-parser');
@@ -58,21 +56,15 @@ app.use(function(req, res, next) {
 // log errors 
 app.use(logger.errorLogger);
 
-// development error handler
-// will print stacktrace
-/* istanbul ignore if */
-if (app.get('env') === 'development') {
-  app.use(function(err, req, res, next) {
-    res.status(err.status || 500);
-    res.send({ error : err.stack });
-  });
-}
-
 // production error handler
 // no stacktraces leaked to user
 app.use(function(err, req, res, next) {
   res.status(err.status || 500);
-  res.send({ error : err.message });
+  var body = { error : err.message };
+  if (nconf.get('verboseErrors')) {
+    body.stack = err.stack;
+  }
+  res.send(body);
 });
 
 
