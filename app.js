@@ -12,6 +12,7 @@ var bodyParser = require('body-parser');
 var routes = require('./routes');
 var sites = require('./routes/site');
 var customers = require('./routes/customer');
+var users = require('./routes/user');
 
 var app = express();
 
@@ -49,6 +50,12 @@ app.get('/:service/customer/:id', customers.show);
 app.post('/:service/customer', customers.create);
 app.put('/:service/customer/:id', customers.update);
 app.del('/:service/customer/:id', customers.destroy);
+
+app.get('/users', users.list);
+app.get('/user/:id', users.show);
+app.post('/user', users.create);
+app.put('/user/:id', users.update);
+app.del('/user/:id', users.destroy);
 
 // anything not matched by a route above,
 // set status 404 and forward to error handler
