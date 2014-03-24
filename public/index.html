@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Lifecycle</title>
+    <link rel="stylesheet" href="stylesheets/style.css">
+  </head>
+  <body>
+    <script type="text/x-handlebars" data-template-name="sites">
+      <section id="lifecycleapp">
+        <header id="header">
+          <h1>sites</h1>
+          {{input type="text" id="new-site" placeholder="Create a new site" 
+                  value=newName action="createSite"}}
+        </header>
+
+        <section id="main">
+          {{outlet}}
+        </section>
+
+        <footer id="footer">
+          <span id="site-count">
+            <strong>{{count}}</strong> {{inflection}} total
+          </span>
+        </footer>
+      </section>
+
+      <footer id="info">
+        <p>Double-click to edit a site</p>
+      </footer>
+    </script>
+
+    <script type="text/x-handlebars" data-template-name="sites/index">
+      <ul id="site-list">
+        {{#each itemController="site"}}
+          <li {{bind-attr class="isEditing:editing"}}>
+            {{#if isEditing}}
+              {{edit-site class="edit" value=name focus-out="acceptChanges"
+                          insert-newline="acceptChanges"}}
+            {{else}}
+              <label {{action "editSite" on="doubleClick"}}>{{name}}</label>
+              <button {{action "removeSite"}} class="destroy"></button>
+            {{/if}}
+          </li>
+        {{/each}}
+      </ul>
+    </script>
+     
+    <!-- Load all of the application code -->
+    <script src="js/libs/jquery/jquery.js"></script>
+    <script src="js/libs/handlebars/handlebars.js"></script>
+    <script src="js/libs/ember/ember.js"></script>
+    <script src="js/libs/ember-data/ember-data.js"></script>
+    <script src="javascripts/application.js"></script>
+    <script src="javascripts/router.js"></script>
+    <script src="javascripts/models/site.js"></script>
+    <script src="javascripts/controllers/sites_controller.js"></script>
+    <script src="javascripts/controllers/site_controller.js"></script>
+    <script src="javascripts/views/edit_site_view.js"></script>
+  </body>
+</html>

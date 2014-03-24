@@ -1,0 +1,21 @@
+{
+  "name": "lifecycle-express",
+  "version": "0.0.1",
+  "homepage": "https://github.com/chuckbjones/lifecycle",
+  "authors": [
+    "Charles Jones <cbj3@chuckbjones.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "ember": "~1.4.0",
+    "ember-data": "1.0.0-beta.7"
+  }
+}

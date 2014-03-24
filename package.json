@@ -1,6 +1,11 @@
 {
   "name": "lifecycle",
   "version": "0.0.1",
+  "homepage": "https://github.com/chuckbjones/lifecycle",
+  "authors": [
+    "Charles Jones <cbj3@chuckbjones.com>"
+  ],
+  "license": "MIT",
   "private": true,
   "scripts": {
     "start": "nodemon ./bin/www",
