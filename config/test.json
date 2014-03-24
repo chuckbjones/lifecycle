@@ -10,7 +10,8 @@
       "filename" : "./log/test.log", 
       "level" : "verbose",
       "colorize" : false,
-      "json" : false
+      "json" : false,
+      "prettyPrint" : true
     }
   }
 }

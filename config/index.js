@@ -21,7 +21,8 @@ nconf.defaults({
       filename : logfile, 
       level : 'verbose',
       colorize : false,
-      json : false
+      json : false,
+      prettyPrint : true
     }
   }
 });

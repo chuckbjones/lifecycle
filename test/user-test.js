@@ -1,4 +1,3 @@
-var _ = require('lodash');
 var monk = require('monk');
 var userFixtures = require('./fixtures/users');
 var supertestChai = require('supertest-chai');
