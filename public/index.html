@@ -1,49 +1,128 @@
 <!doctype html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <title>Lifecycle</title>
+    <link rel="stylesheet" href="css/libs/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="css/libs/bootstrap/dist/css/bootstrap-theme.css">
     <link rel="stylesheet" href="stylesheets/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
+
+    <!-- Navigation -->
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/index.html">Lifecycle</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Settings</a></li>
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Help</a></li>
+          </ul>
+          <form class="navbar-form navbar-right">
+            <input type="text" class="form-control" placeholder="Search...">
+          </form>
+        </div>
+      </div>
+    </div>
+
     <script type="text/x-handlebars" data-template-name="sites">
-      <section id="lifecycleapp">
-        <header id="header">
-          <h1>sites</h1>
-          {{input type="text" id="new-site" placeholder="Create a new site" 
-                  value=newName action="createSite"}}
-        </header>
-
-        <section id="main">
-          {{outlet}}
-        </section>
-
-        <footer id="footer">
-          <span id="site-count">
-            <strong>{{count}}</strong> {{inflection}} total
-          </span>
-        </footer>
-      </section>
-
-      <footer id="info">
-        <p>Double-click to edit a site</p>
-      </footer>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-2 col-md-2 sidebar">
+            <ul class="nav nav-sidebar">
+              <li class="active"><a href="#">Overview</a></li>
+              <li><a href="#">Reports</a></li>
+              <li><a href="#">Analytics</a></li>
+              <li><a href="#">Export</a></li>
+            </ul>
+            <ul class="nav nav-sidebar">
+              <li><a href="">Nav item</a></li>
+              <li><a href="">Nav item again</a></li>
+              <li><a href="">One more nav</a></li>
+              <li><a href="">Another nav item</a></li>
+              <li><a href="">More navigation</a></li>
+            </ul>
+            <ul class="nav nav-sidebar">
+              <li><a href="">Nav item again</a></li>
+              <li><a href="">One more nav</a></li>
+              <li><a href="">Another nav item</a></li>
+            </ul>
+          </div>
+          <div class="col-sm-10 col-sm-offset-2 col-md-10 col-md-offset-2 main">
+            <section id="lifecycleapp">
+              <header id="header">
+                <h1 class="page-header">Gato Sites</h1>
+                {{input type="text" id="new-site" placeholder="Create a new site" 
+                        value=newName action="createSite"}}
+              </header>
+      
+              <section id="main">
+                {{outlet}}
+              </section>
+      
+              <footer id="footer">
+                <span id="site-count">
+                  <strong>{{count}}</strong> {{inflection}} total
+                </span>
+              </footer>
+            </section>
+            <footer id="page-footer">
+              <a href="http://github.com/chuckbjones/lifecycle">Lifecycle v0.0.1</a>
+            </footer>
+          </div>
+        </div>
+      </div> 
     </script>
 
     <script type="text/x-handlebars" data-template-name="sites/index">
-      <ul id="site-list">
-        {{#each itemController="site"}}
-          <li {{bind-attr class="isEditing:editing"}}>
-            {{#if isEditing}}
-              {{edit-site class="edit" value=name focus-out="acceptChanges"
-                          insert-newline="acceptChanges"}}
-            {{else}}
-              <label {{action "editSite" on="doubleClick"}}>{{name}}</label>
-              <button {{action "removeSite"}} class="destroy"></button>
-            {{/if}}
-          </li>
-        {{/each}}
-      </ul>
+      <div class="slickgrid-container">
+        
+      </div>
+
+      <div class="table-responsive">
+        <table class="table table-striped" id="site-list">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Organizational Unit</th>
+              <th>Site Owner</th>
+              <th>Manager(s)</th>
+              <th>Comments</th>
+              <th>State</th>
+            </tr>
+          </thead>
+          <tbody>
+          {{#each itemController="site"}}
+            <tr>
+              <td {{bind-attr class="isEditing:editing"}}>
+                {{#if isEditing}}
+                  {{edit-site class="edit" value=name focus-out="acceptChanges"
+                              insert-newline="acceptChanges"}}
+                {{else}}
+                  <label {{action "editSite" on="doubleClick"}}>{{name}}</label>
+                  {{!-- <button {{action "removeSite"}} class="destroy"></button> --}}
+                {{/if}}
+              </td>
+              <td>{{organizational_unit}}</td>
+              <td>{{owner.name}}</td>
+              <td>{{manager_names}}</td>
+              <td>{{truncate comments 50}}</td>
+              <td>{{state}}</td>
+            </tr>
+          {{/each}}
+          </tbody>
+      </table>
     </script>
      
     <!-- Load all of the application code -->
