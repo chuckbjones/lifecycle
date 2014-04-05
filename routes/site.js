@@ -6,7 +6,7 @@ exports.list = function list(req, res, next){
     { limit : 10, skip : 0, sort : [['name',1]] }, // FIXME: make them params
     function(err, results) {
       if (err) return next(err);
-      res.send(results);
+      res.send({ 'sites': results });
     }
   );
 };
