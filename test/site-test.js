@@ -27,9 +27,10 @@ describe('CRUD for sites collection', function(){
         .end(function (res) {
           res.should.be.json;
           res.should.have.status(200);
-          res.body.should.be.a('array');
-          res.body.should.have.length(3);
-          _.forEach(res.body, function(s) { s.service.should.equal('gato'); });
+          res.body.should.be.a('object');
+          res.body.sites.should.be.a('array');
+          res.body.sites.should.have.length(3);
+          _.forEach(res.body.sites, function(s) { s.service.should.equal('gato'); });
           done();
         });
     });
