@@ -14,8 +14,8 @@
     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container-fluid">
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
+          <button type="button" class="navbar-btn sidebar-toggle" data-toggle="offcanvas" data-target=".sidebar-nav">
+            <span class="sr-only">Toggle sidebar</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -24,47 +24,40 @@
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Dashboard</a></li>
-            <li><a href="#">Settings</a></li>
-            <li><a href="#">Profile</a></li>
-            <li><a href="#">Help</a></li>
+            <li><a href="#">Login</a></li>
           </ul>
-          <form class="navbar-form navbar-right">
-            <input type="text" class="form-control" placeholder="Search...">
-          </form>
         </div>
       </div>
     </div>
 
     <script type="text/x-handlebars" data-template-name="sites">
       <div class="container-fluid">
-        <div class="row">
-          <div class="col-sm-2 col-md-2 sidebar">
-            <ul class="nav nav-sidebar">
-              <li class="active"><a href="#">Overview</a></li>
-              <li><a href="#">Reports</a></li>
-              <li><a href="#">Analytics</a></li>
-              <li><a href="#">Export</a></li>
-            </ul>
-            <ul class="nav nav-sidebar">
-              <li><a href="">Nav item</a></li>
-              <li><a href="">Nav item again</a></li>
-              <li><a href="">One more nav</a></li>
-              <li><a href="">Another nav item</a></li>
-              <li><a href="">More navigation</a></li>
-            </ul>
-            <ul class="nav nav-sidebar">
-              <li><a href="">Nav item again</a></li>
-              <li><a href="">One more nav</a></li>
-              <li><a href="">Another nav item</a></li>
+        <div class="row row-offcanvas row-offcanvas-left">
+          <div class="sidebar-offcanvas" id="sidebar" role="navigation">
+            <ul class="nav">
+              <li class="nav-list">
+                <a href="#">Gato</a>
+                <ul class="nav">
+                  <li class="active"><a href="#">Sites</a></li>
+                  <li><a href="#">Customers</a></li>
+                  <li><a href="#">Report</a></li>
+                  <li><a href="#">Customer Report</a></li>
+                </ul>
+              </li>
+              <li class="nav-list"><a href="#">Calendar</a></li>
+              <li class="nav-list"><a href="#">Signup</a></li>
+              <li class="nav-list"><a href="#">Portfolio</a></li>
+              <li class="nav-list"><a href="#">TRACS</a></li>
+              <li class="nav-list"><a href="#">Connect</a></li>
+              <li class="nav-list"><a href="#">Digital Signage</a></li>
             </ul>
           </div>
-          <div class="col-sm-10 col-sm-offset-2 col-md-10 col-md-offset-2 main">
+          <div class="col-sm-12 main">
             <section id="lifecycleapp">
               <header id="header">
                 <h1 class="page-header">Gato Sites</h1>
-                {{input type="text" id="new-site" placeholder="Create a new site" 
-                        value=newName action="createSite"}}
+                {{!-- input type="text" id="new-site" placeholder="Create a new site" 
+                        value=newName action="createSite" --}}
               </header>
       
               <section id="main">
@@ -86,9 +79,17 @@
     </script>
 
     <script type="text/x-handlebars" data-template-name="sites/index">
-      <div class="slickgrid-container">
-        
-      </div>
+      <form class="search-form">
+        <div class="form-group">
+          <div class="input-group col-sm-6 col-sm-offset-6 col-md-4 col-md-offset-8">
+            <label class="sr-only" for="search">Search</label>          
+            <input type="text" id="search" class="form-control" placeholder="Search...">
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="button">Go!</button>
+            </span>
+          </div>
+        </div>
+      </form>
 
       <div class="table-responsive">
         <table class="table table-striped" id="site-list">
@@ -127,6 +128,7 @@
      
     <!-- Load all of the application code -->
     <script src="js/libs/jquery/jquery.js"></script>
+    <script src="js/libs/bootstrap/dist/js/bootstrap.js"></script>
     <script src="js/libs/handlebars/handlebars.js"></script>
     <script src="js/libs/ember/ember.js"></script>
     <script src="js/libs/ember-data/ember-data.js"></script>

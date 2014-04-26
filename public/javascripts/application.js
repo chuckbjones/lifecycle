@@ -17,3 +17,9 @@ Ember.Handlebars.helper('truncate', function(str, len) {
     return str;
   }
 });
+
+$(document).ready(function() {
+  $('[data-toggle=offcanvas]').click(function() {
+    $('.row-offcanvas').toggleClass('active');
+  });
+});
