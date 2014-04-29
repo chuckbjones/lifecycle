@@ -1,6 +1,6 @@
 # lifecycle [![Build Status](https://travis-ci.org/chuckbjones/lifecycle.svg?branch=master)](https://travis-ci.org/chuckbjones/lifecycle) [![Code Climate](https://codeclimate.com/github/chuckbjones/lifecycle.png)](https://codeclimate.com/github/chuckbjones/lifecycle)
 
-This is going to be a node.js app with an ember.js frontend. Currently using mongodb for the database, but this may change to couch in the future.
+This is going to be a node.js app with an backbone.js frontend. Currently using mongodb for the database, but this may change to couch in the future.
 
 TODO: add description, install, usage, and test details.
 
@@ -25,6 +25,17 @@ Homebrew will print out instructions for launching mongodb now or at login. Here
         launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mongodb.plist
     Or, if you don't want/need launchctl, you can just run:
         mongod --config /usr/local/etc/mongod.conf
+
+### Bower (optional) ###
+If you need to install or upgrade a client-side dependency, install it through bower. To install bower:
+
+`npm install -g bower`
+
+To install, for example, backbone.js:
+
+`bower install --save backbone`
+
+This will install backbone into the `bower_components` directory and lock in the installed version in `bower.json`.
 
 ## Import data ##
 If you have existing data that you want to import into the mongodb instance, you can run these commands:

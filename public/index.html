@@ -3,9 +3,10 @@
   <head>
     <meta charset="utf-8">
     <title>Lifecycle</title>
-    <link rel="stylesheet" href="css/libs/bootstrap/dist/css/bootstrap.css">
-    <link rel="stylesheet" href="css/libs/bootstrap/dist/css/bootstrap-theme.css">
-    <link rel="stylesheet" href="stylesheets/style.css">
+    <link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap-theme.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script data-main="js/main" src="libs/requirejs/require.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
@@ -29,114 +30,85 @@
         </div>
       </div>
     </div>
+    
+    <div class="container-fluid">
+      <div class="row row-offcanvas row-offcanvas-left">   
+        <div class="sidebar-offcanvas" id="sidebar" role="navigation">
+          <ul class="nav">
+            <li class="nav-list">
+              <a href="#">Gato</a>
+              <ul class="nav">
+                <li class="active"><a href="#">Sites</a></li>
+                <li><a href="#">Customers</a></li>
+                <li><a href="#">Report</a></li>
+                <li><a href="#">Customer Report</a></li>
+              </ul>
+            </li>
+            <li class="nav-list"><a href="#">Calendar</a></li>
+            <li class="nav-list"><a href="#">Signup</a></li>
+            <li class="nav-list"><a href="#">Portfolio</a></li>
+            <li class="nav-list"><a href="#">TRACS</a></li>
+            <li class="nav-list"><a href="#">Connect</a></li>
+            <li class="nav-list"><a href="#">Digital Signage</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-12 main">
+          <section id="lifecycleapp">
+            <header id="header">
+              <h1 class="page-header">Gato Sites</h1>
+            </header>
+      
+            <section id="main">
+              <form class="search-form">
+                <div class="form-group">
+                  <div class="input-group col-sm-6 col-sm-offset-6 col-md-4 col-md-offset-8">
+                    <label class="sr-only" for="search">Search</label>          
+                    <input type="text" id="search" class="form-control" placeholder="Search...">
+                    <span class="input-group-btn">
+                      <button class="btn btn-default" type="button">Go!</button>
+                    </span>
+                  </div>
+                </div>
+              </form>
 
-    <script type="text/x-handlebars" data-template-name="sites">
-      <div class="container-fluid">
-        <div class="row row-offcanvas row-offcanvas-left">
-          <div class="sidebar-offcanvas" id="sidebar" role="navigation">
-            <ul class="nav">
-              <li class="nav-list">
-                <a href="#">Gato</a>
-                <ul class="nav">
-                  <li class="active"><a href="#">Sites</a></li>
-                  <li><a href="#">Customers</a></li>
-                  <li><a href="#">Report</a></li>
-                  <li><a href="#">Customer Report</a></li>
-                </ul>
-              </li>
-              <li class="nav-list"><a href="#">Calendar</a></li>
-              <li class="nav-list"><a href="#">Signup</a></li>
-              <li class="nav-list"><a href="#">Portfolio</a></li>
-              <li class="nav-list"><a href="#">TRACS</a></li>
-              <li class="nav-list"><a href="#">Connect</a></li>
-              <li class="nav-list"><a href="#">Digital Signage</a></li>
-            </ul>
-          </div>
-          <div class="col-sm-12 main">
-            <section id="lifecycleapp">
-              <header id="header">
-                <h1 class="page-header">Gato Sites</h1>
-                {{!-- input type="text" id="new-site" placeholder="Create a new site" 
-                        value=newName action="createSite" --}}
-              </header>
-      
-              <section id="main">
-                {{outlet}}
-              </section>
-      
-              <footer id="footer">
-                <span id="site-count">
-                  <strong>{{count}}</strong> {{inflection}} total
-                </span>
-              </footer>
+              <div class="table-responsive">
+                <table class="table table-striped" id="site-list">
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Organizational Unit</th>
+                      <th>Site Owner</th>
+                      <th>Manager(s)</th>
+                      <th>Comments</th>
+                      <th>State</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <!-- site template rendered here -->
+                  </tbody>
+                </table>
+              </div>
             </section>
-            <footer id="page-footer">
-              <a href="http://github.com/chuckbjones/lifecycle">Lifecycle v0.0.1</a>
+
+            <footer id="footer">
             </footer>
-          </div>
+          </section>
+          <footer id="page-footer">
+            <a href="http://github.com/chuckbjones/lifecycle">Lifecycle v0.0.1</a>
+          </footer>
         </div>
-      </div> 
+      </div>
+    </div>
+
+    <!-- FIXME: should be part of a NavView or something. -->
+    <script type="text/javascript" src="/libs/jquery/dist/jquery.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $('[data-toggle=offcanvas]').click(function() {
+          $('.row-offcanvas').toggleClass('active');
+        });
+      });
     </script>
 
-    <script type="text/x-handlebars" data-template-name="sites/index">
-      <form class="search-form">
-        <div class="form-group">
-          <div class="input-group col-sm-6 col-sm-offset-6 col-md-4 col-md-offset-8">
-            <label class="sr-only" for="search">Search</label>          
-            <input type="text" id="search" class="form-control" placeholder="Search...">
-            <span class="input-group-btn">
-              <button class="btn btn-default" type="button">Go!</button>
-            </span>
-          </div>
-        </div>
-      </form>
-
-      <div class="table-responsive">
-        <table class="table table-striped" id="site-list">
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Organizational Unit</th>
-              <th>Site Owner</th>
-              <th>Manager(s)</th>
-              <th>Comments</th>
-              <th>State</th>
-            </tr>
-          </thead>
-          <tbody>
-          {{#each itemController="site"}}
-            <tr>
-              <td {{bind-attr class="isEditing:editing"}}>
-                {{#if isEditing}}
-                  {{edit-site class="edit" value=name focus-out="acceptChanges"
-                              insert-newline="acceptChanges"}}
-                {{else}}
-                  <label {{action "editSite" on="doubleClick"}}>{{name}}</label>
-                  {{!-- <button {{action "removeSite"}} class="destroy"></button> --}}
-                {{/if}}
-              </td>
-              <td>{{organizational_unit}}</td>
-              <td>{{owner.name}}</td>
-              <td>{{manager_names}}</td>
-              <td>{{truncate comments 50}}</td>
-              <td>{{state}}</td>
-            </tr>
-          {{/each}}
-          </tbody>
-      </table>
-    </script>
-     
-    <!-- Load all of the application code -->
-    <script src="js/libs/jquery/jquery.js"></script>
-    <script src="js/libs/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="js/libs/handlebars/handlebars.js"></script>
-    <script src="js/libs/ember/ember.js"></script>
-    <script src="js/libs/ember-data/ember-data.js"></script>
-    <script src="javascripts/application.js"></script>
-    <script src="javascripts/router.js"></script>
-    <script src="javascripts/models/site.js"></script>
-    <script src="javascripts/controllers/sites_controller.js"></script>
-    <script src="javascripts/controllers/site_controller.js"></script>
-    <script src="javascripts/views/edit_site_view.js"></script>
   </body>
 </html>
