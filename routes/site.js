@@ -3,10 +3,9 @@ exports.list = function list(req, res, next){
   if (!req.params.service) return next(new Error('No service provided.'));
   req.db.get('sites').find(
     { service : req.params.service },
-    { limit : 10, skip : 0, sort : [['name',1]] }, // FIXME: make them params
     function(err, results) {
       if (err) return next(err);
-      res.send({ 'sites': results });
+      res.send(results);
     }
   );
 };

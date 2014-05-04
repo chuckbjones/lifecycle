@@ -1,18 +1,20 @@
 define([
   'underscore', 
   'backbone', 
+  'backbone-pageable', 
   'models/site'
-  ], function(_, Backbone, Site){
+  ], function(_, Backbone, BackbonePageable, Site){
 
-  var SitesCollection = Backbone.Collection.extend({
+  var SitesCollection = Backbone.PageableCollection.extend({
+    mode: 'client',
 
     url: '/gato/sites',
 
     // Reference to this collection's model.
     model: Site,
 
-    parse: function(results) {
-      return results.sites;
+    state: {
+      pageSize: 10
     },
 
     // Sites are sorted by their name.

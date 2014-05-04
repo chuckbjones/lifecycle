@@ -7,6 +7,7 @@ require.config({
     jquery: '/libs/jquery/dist/jquery',
     underscore: '/libs/underscore/underscore',
     backbone: '/libs/backbone/backbone',
+    'backbone-pageable': '/libs/backbone-pageable/lib/backbone-pageable',
     text: '/libs/requirejs-text/text'
   },
 
@@ -24,8 +25,15 @@ require.config({
 
 });
 
-require([ 'views/app', 'collections/sites' ], function(AppView, AppCollection){
+require([ 
+  'views/app', 
+  'views/pagination',
+  'collections/sites'
+  ], function(AppView, PaginationView, AppCollection) {
   var app_view = new AppView({
+    collection: AppCollection
+  });
+  var pagination_view = new PaginationView({
     collection: AppCollection
   });
 });

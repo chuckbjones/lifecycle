@@ -154,3 +154,17 @@
   text-align: center;
   padding: 40px;
 }
+
+/*
+ * Main listing
+ */
+td {
+  font-size: 0.8em;
+}
+
+/*
+ * Pagination links
+ */
+#pagination {
+  text-align: center;
+}

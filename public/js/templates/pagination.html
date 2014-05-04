@@ -1,0 +1,25 @@
+  <ul class="pagination">
+
+    <li class="<%= hasPreviousPage() ? '' : 'disabled' %>" >
+      <a href="#" class="serverfirst">&laquo;</a>
+    </li>
+
+    <li class="<%= hasPreviousPage() ? '' : 'disabled' %>">
+      <a href="#" class="serverprevious">&lt;</a>
+    </li>
+
+    <% for (p = 1; p <= state.totalPages; p++) { %>
+      <li class="<%= this.pageClass(p) %>">
+        <a href="#" class="page"><%= p %></a>
+      </li>
+    <% } %>
+
+    <li class="<%= hasNextPage() ? '' : 'disabled' %>">
+      <a href="#" class="servernext">&gt;</a>
+    </li>
+
+    <li class="<%= hasNextPage() ? '' : 'disabled' %>">
+      <a href="#" class="serverlast">&raquo;</a>
+    </li>
+
+</ul>

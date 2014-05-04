@@ -52,6 +52,7 @@ define([
 
     // Add all items in the **Sites** collection at once.
     addAll: function() {
+      this.$('#site-list > tbody').empty();
       this.collection.each(this.addOne);
     },
 
