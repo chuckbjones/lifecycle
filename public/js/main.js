@@ -6,8 +6,9 @@ require.config({
   paths: {
     jquery: '/libs/jquery/dist/jquery',
     underscore: '/libs/underscore/underscore',
+    'underscore.string': '/libs/underscore.string/lib/underscore.string',
     backbone: '/libs/backbone/backbone',
-    'backbone-pageable': '/libs/backbone-pageable/lib/backbone-pageable',
+    'backbone.paginator': '/libs/backbone.paginator/lib/backbone.paginator',
     text: '/libs/requirejs-text/text'
   },
 
@@ -26,15 +27,18 @@ require.config({
 });
 
 require([ 
-  'views/app', 
+  'views/calendar/sites', 
   'views/pagination',
   'collections/sites'
-  ], function(AppView, PaginationView, AppCollection) {
-  var app_view = new AppView({
-    collection: AppCollection
-  });
-  var pagination_view = new PaginationView({
-    collection: AppCollection
-  });
-});
+  ],
+  function(SitesView, PaginationView, SitesCollection) {
+    var app_collection = new SitesCollection([], { service: 'calendar' });
+    var app_view = new SitesView({
+      collection: app_collection
+    });
+    var pagination_view = new PaginationView({
+      collection: app_collection
+    });
+  }
+);
 

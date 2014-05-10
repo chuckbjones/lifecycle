@@ -1,16 +1,12 @@
 define([
   'jquery', 
   'underscore', 
-  'backbone',
-  'text!templates/sites.html'
+  'backbone'
   ], function($, _, Backbone, sitesTemplate){
   var SiteView = Backbone.View.extend({
 
     //... is a tr tag.
     tagName:  'tr',
-
-    // Cache the template function for a single item.
-    template: _.template(sitesTemplate),
 
     // The DOM events specific to an item.
     events: {
