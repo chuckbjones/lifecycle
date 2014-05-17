@@ -36,10 +36,9 @@ define([
 
     // Remove this view from the DOM.
     // Remove event listeners from: DOM, this.model
-    remove: function() {
-      this.stopListening();
+    close: function() {
       this.undelegateEvents();
-      this.$el.remove();
+      this.remove();
     },
 
     nextResultPage: function (e) {

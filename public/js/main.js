@@ -10,35 +10,14 @@ require.config({
     backbone: '/libs/backbone/backbone',
     'backbone.paginator': '/libs/backbone.paginator/lib/backbone.paginator',
     text: '/libs/requirejs-text/text'
-  },
-
-  shim: {
-
-    underscore: {
-      exports: '_'
-    },
-
-    backbone: {
-      deps: [ 'underscore', 'jquery' ],
-      exports: 'Backbone'
-    }
   }
 
 });
 
-require([ 
-  'views/calendar/sites', 
-  'views/pagination',
-  'collections/sites'
-  ],
-  function(SitesView, PaginationView, SitesCollection) {
-    var app_collection = new SitesCollection([], { service: 'calendar' });
-    var app_view = new SitesView({
-      collection: app_collection
-    });
-    var pagination_view = new PaginationView({
-      collection: app_collection
-    });
+require(['router'],
+  function(AppRouter) {
+    var app_router = new AppRouter();
+    Backbone.history.start();
   }
 );
 

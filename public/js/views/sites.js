@@ -2,13 +2,14 @@ define([
   'jquery',
   'underscore', 
   'backbone',
+  'views/pagination',
+  'text!templates/sites.html',
   'text!templates/stats.html'
-  ], function($, _, Backbone, statsTemplate){
+  ], function($, _, Backbone, PaginationView, sitesTemplate, statsTemplate){
   var SitesView = Backbone.View.extend({
 
-    // Instead of generating a new element, bind to the existing skeleton of
-    // the App already present in the HTML.
-    el: $('#lifecycleapp'),
+    // Our template for the main site list.
+    sitesTemplate: _.template(sitesTemplate),
 
     // Our template for the line of statistics at the bottom of the app.
     statsTemplate: _.template(statsTemplate),
@@ -25,7 +26,15 @@ define([
     // passed on the constructor of this SitesView. Kick things off by
     // loading any preexisting sites from the db.
     initialize: function() {
+      this.$el.html(this.sitesTemplate({
+        title: this.collection.title(),
+        table_header: this.tableHeaderTemplate
+      }));
+      $('#lifecycleapp').html(this.el);
+
       this.input    = this.$("#new-site");
+      
+      this.paginationView = new PaginationView({ collection: this.collection });
 
       this.listenTo(this.collection, 'add', this.addOne);
       this.listenTo(this.collection, 'reset', this.addAll);
@@ -35,13 +44,15 @@ define([
     },
 
     render: function() {
-      this.$('#header .page-header').html(this.collection.title());
-
-      this.$('#site-list > thead > tr').html(this.tableHeaderTemplate);
-
       this.$('#footer').html(this.statsTemplate({
         total:      this.collection.state.totalRecords
       }));
+    },
+
+    close: function() {
+      this.undelegateEvents();
+      this.paginationView.close();
+      this.remove();
     },
 
     // Add a single site item to the list by creating a view for it, and
