@@ -4,7 +4,7 @@ define([
   'backbone'
   ], function($, _, Backbone){
   var AppRouter = Backbone.Router.extend({
-    services: ['gato', 'calendar'],
+    services: ['calendar', 'connect', 'digital_sign', 'gato', 'portfolio', 'signup', 'tracs'],
        
     initialize: function(options) {
       _.each(this.services, function(service) {
@@ -26,11 +26,16 @@ define([
     displaySites: function(service) { 
         var loadView = _.bind(this.loadView, this);
         require([ 
-          'views/'+service+'/sites', 
+          'text!templates/'+service+'/table_header.html',
+          'text!templates/'+service+'/site.html',
+          'views/sites',
           'collections/sites'
           ],
-          function(SitesView, SitesCollection) {
+          function(tableHeaderTemplate, siteTemplate, SitesView, SitesCollection) {
+            //SitesView = ServiceSitesView ? ServiceSitesView : SitesView;
             loadView(new SitesView({
+              tableHeaderTemplate: tableHeaderTemplate,
+              siteTemplate: siteTemplate,
               collection: new SitesCollection([], { service: service })
             }));            
           }

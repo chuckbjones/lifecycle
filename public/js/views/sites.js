@@ -3,9 +3,10 @@ define([
   'underscore', 
   'backbone',
   'views/pagination',
+  'views/site',
   'text!templates/sites.html',
   'text!templates/stats.html'
-  ], function($, _, Backbone, PaginationView, sitesTemplate, statsTemplate){
+  ], function($, _, Backbone, PaginationView, SiteView, sitesTemplate, statsTemplate){
   var SitesView = Backbone.View.extend({
 
     // Our template for the main site list.
@@ -25,10 +26,13 @@ define([
     // collection, when items are added or changed. This collection is
     // passed on the constructor of this SitesView. Kick things off by
     // loading any preexisting sites from the db.
-    initialize: function() {
+    initialize: function(options) {
+      this.siteTemplate = _.template(options.siteTemplate);
+      this.tableHeaderTemplate = _.template(options.tableHeaderTemplate);
+
       this.$el.html(this.sitesTemplate({
         title: this.collection.title(),
-        table_header: this.tableHeaderTemplate
+        table_header: this.tableHeaderTemplate()
       }));
       $('#lifecycleapp').html(this.el);
 
@@ -58,7 +62,7 @@ define([
     // Add a single site item to the list by creating a view for it, and
     // appending its element to the `<ul>`.
     addOne: function(site) {
-      var view = new this.siteView({model: site});
+      var view = new SiteView({template: this.siteTemplate, model: site});
       this.$('#site-list > tbody').append(view.render().el);
     },
 
